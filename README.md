@@ -10,7 +10,7 @@
 ***
 
 ### ***Description***
-#### My First Project -_- ....
+#### Dominos is an an ancient game with Chinese origins, for my project I'll be making an easy, and simple version of the game that can a good introductory for beginners ....
 ***
 
 ### ***Technologies Used***
