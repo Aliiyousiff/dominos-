@@ -1,3 +1,31 @@
 body{
-    background-color: blue;
+    background-image:url(https://media.tenor.com/R8HM1ZkA-E8AAAAM/dominoes-friends-forever.gif) ;  
+}
+
+p {
+    position: absolute;
+    right: 10px;
+    left: 10px;
+    bottom: 364px;
+    background-color: gray;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    margin:20px auto;
+    padding:10px;
+    text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border: 2px , black;
+    color: white;
+}
+a {
+    background-color: gray;
+    color: whitesmoke;
+    font-size: 25px;
+    position:fixed;
+    bottom: 230px;
+    left: 400px;
+    right: 400px;
 }

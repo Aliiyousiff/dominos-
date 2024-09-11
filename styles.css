@@ -33,13 +33,13 @@ body {
 }
 
 .player-tile {
-    background-color: black; 
+    background-color:lightseagreen; 
     color: white;
 }
 
 .computer-tile {
-    background-color: lightgray; 
-    color: transparent; 
+    background-color: lightcyan; 
+    
 }
 
 .half-tile {
@@ -79,13 +79,13 @@ body {
     color: white;
 }
 .tile {
-    display: flex;
+    display:flex;
     width: 70px;
     height: 50px;
     margin: 5px;
     border: 1px solid black;
     position: relative;
-    flex-direction: row;
+    flex-direction:row;
 }
 
 #player-tiles ,#computer-tiles{
@@ -120,8 +120,9 @@ body {
     transform: translate(-50%, -50%);
     border: 1px solid white;
     border-radius: 50%; 
-    width: 150px; 
-    height: 150px; 
+    overflow: hidden;
+    width: 300px; 
+    height: 300px; 
     z-index: 10; 
 }
 

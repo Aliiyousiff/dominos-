@@ -248,18 +248,29 @@ function showWinnerImage() {
     winnerPicDiv.style.display = "block"; 
 
     setTimeout(() => {
-        winnerPicDiv.style.display = "none"; 
-    }, 5000); //
+        winnerPicDiv.style.display = "none";
+    }, 5000); 
 }
 
+function showLoserImage() {
+    const loserPicDiv = document.getElementById("loser-pic");
+    loserPicDiv.style.display = "block";
+
+    setTimeout(() => {
+        loserPicDiv.style.display = "none"; 
+    }, 5000); 
+}
 
 function checkGameEnd() {
     if (playerTiles.length === 0 || computerTiles.length === 0) {
         if (playerTiles.length === 0) {
             playerScore++;
-            showWinnerImage(); 
+            showWinnerImage();
         }
-        if (computerTiles.length === 0) computerScore++;
+        if (computerTiles.length === 0) {
+            computerScore++;
+            showLoserImage(); 
+        }
         alert(`Round over! Player Score: ${playerScore}, Computer Score: ${computerScore}`);
         startGame();
     } else if (!playerHasValidMove() && !computerHasValidMove()) {
@@ -279,6 +290,7 @@ function calculateBlockedGameWinner() {
 
     if (playerPoints > computerPoints) {
         computerScore++;
+        showLoserImage(); 
         alert("Game blocked! Player has higher points, computer wins this round.");
     } else {
         playerScore++;
