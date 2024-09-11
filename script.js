@@ -197,24 +197,7 @@ function computerPlay() {
             updateScore();
         }, 200); 
     }, 1000);
-}
-
-function checkGameEnd() {
-    if (playerTiles.length === 0 || computerTiles.length === 0) {
-        if (playerTiles.length === 0) playerScore++;
-        if (computerTiles.length === 0) computerScore++;
-        alert(`Round over! Player Score: ${playerScore}, Computer Score: ${computerScore}`);
-        startGame();
-    } else if (!playerHasValidMove() && !computerHasValidMove()) {
-        calculateBlockedGameWinner();
-    } else if (!playerHasValidMove()) {
-        alert("Player can't play, computer's turn!");
-        currentPlayer = "computer";
-        computerPlay();
-    } else if (!computerHasValidMove()) {
-        currentPlayer = "player";
-    }
-}
+} 
 
 function playerHasValidMove() {
     return playerTiles.some(isValidMove);
@@ -222,21 +205,6 @@ function playerHasValidMove() {
 
 function computerHasValidMove() {
     return computerTiles.some(isValidMove);
-}
-
-function calculateBlockedGameWinner() {
-    const playerPoints = playerTiles.reduce((sum, tile) => sum + tile[0] + tile[1], 0);
-    const computerPoints = computerTiles.reduce((sum, tile) => sum + tile[0] + tile[1], 0);
-
-    if (playerPoints > computerPoints) {
-        computerScore++;
-        alert("Game blocked! Player has higher points, computer wins this round.");
-    } else {
-        playerScore++;
-        alert("Game blocked! Computer has higher points, player wins this round.");
-    }
-    updateScore();
-    startGame();
 }
 
 function updateScore() {
@@ -266,13 +234,19 @@ function checkGameEnd() {
         if (playerTiles.length === 0) {
             playerScore++;
             showWinnerImage();
+            setTimeout(() => {
+                alert("Congratulations! You won this round!"); 
+            }, 3000); 
         }
         if (computerTiles.length === 0) {
             computerScore++;
-            showLoserImage(); 
+            showLoserImage();
+            setTimeout(() => {
+                alert("You lost this round. Better luck next time!"); 
+            }, 3000); 
         }
-        alert(`Round over! Player Score: ${playerScore}, Computer Score: ${computerScore}`);
-        startGame();
+        updateScore();
+        setTimeout(() => startGame(), 6000); 
     } else if (!playerHasValidMove() && !computerHasValidMove()) {
         calculateBlockedGameWinner();
     } else if (!playerHasValidMove()) {
@@ -290,13 +264,17 @@ function calculateBlockedGameWinner() {
 
     if (playerPoints > computerPoints) {
         computerScore++;
-        showLoserImage(); 
-        alert("Game blocked! Player has higher points, computer wins this round.");
+        showLoserImage();
+        setTimeout(() => {
+            alert("Game blocked! Player has higher points, computer wins this round.");
+        }, 5000); 
     } else {
         playerScore++;
         showWinnerImage(); 
-        alert("Game blocked! Computer has higher points, player wins this round.");
+        setTimeout(() => {
+            alert("Game blocked! Computer has higher points, player wins this round.");
+        }, 5000); 
     }
     updateScore();
-    startGame();
+    setTimeout(() => startGame(), 6000); 
 }
